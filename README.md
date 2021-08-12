@@ -14,11 +14,8 @@ yarn serve
 ```
 yarn build
 ```
+## Animation types
 
-### Lints and fixes files
 ```
-yarn lint
+oneway - classic left\right carousel
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
