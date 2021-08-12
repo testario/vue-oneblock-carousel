@@ -27,6 +27,7 @@
 <script>
 export default {
   name: "v-ob-car",
+  props: ["animationType"],
   data() {
     return {
       animClass: "",
@@ -54,30 +55,33 @@ export default {
   },
   methods: {
     async carDots(index) {
-      let animDir = this.carState.id < index ? "animated-right" : "animated-left";
-      const activeDot = document.querySelectorAll(".v-ob-car-dots .item")[index];
-      this.animClass = animDir;
-      activeDot.classList.add("active");
+      let animDir = ""
+      if (this.animationType === "oneway") {
+        animDir = this.carState.id < index ? "animated-right" : "animated-left"
+      }
+      const activeDot = document.querySelectorAll(".v-ob-car-dots .item")[index]
+      this.animClass = animDir
+      activeDot.classList.add("active")
       if (this.carState.id > index) {
         this.highlighter.left = `${activeDot.offsetLeft}px`
       }
-      this.highlighter.width = `${39 * (Math.abs(index - this.carState.id) + 1)}px`;
+      this.highlighter.width = `${39 * (Math.abs(index - this.carState.id) + 1)}px`
       setTimeout(() => {
         this.animClass = `${animDir} stop`
       }, 150)
       setTimeout(() => {
-        this.highlighter.left = `${activeDot.offsetLeft}px`;
-        this.highlighter.width = "32px";
-        this.carState = this.carSlides[index];
-        this.animClass = "";
+        this.highlighter.left = `${activeDot.offsetLeft}px`
+        this.highlighter.width = "32px"
+        this.carState = this.carSlides[index]
+        this.animClass = ""
       }, 300)
     }
   },
   created() {
-    return (this.carState = this.carSlides[0]);
+    return (this.carState = this.carSlides[0])
   },
   mounted() {
-    const activeDot = document.querySelector(".v-ob-car-dots .item.active");
+    const activeDot = document.querySelector(".v-ob-car-dots .item.active")
     return this.highlighter = {
       top: `${activeDot.offsetTop}px`,
       left: `${activeDot.offsetLeft}px`,

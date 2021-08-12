@@ -1,6 +1,6 @@
 <template>
 <div>
- <v-ob-car></v-ob-car>
+ <v-ob-car animation-type="oneway"></v-ob-car>
 </div>
 </template>
 
