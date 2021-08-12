@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+ <v-ob-car></v-ob-car>
+</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import VObCar from "@/components/VObCar";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    VObCar
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import "~normalize-css";
+html {
+  font-size: 10px;
+}
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 4rem;
 }
 </style>
